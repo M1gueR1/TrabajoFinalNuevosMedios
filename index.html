@@ -7,19 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #3a352f;
-    --cream: #e5f3ba;
-    --gold: #80d3bb;
-    --gold-light: #bafdc2;
-    --rust: #5c493d;
-    --sage: #80d3bb;
-    --slate: #5c493d;
-    --card-bg: #f3fbe8;
-    --shadow: rgba(58,53,47,0.15);
+    --ink: #1a2333;
+    --cream: #eef4fb;
+    --gold: #4da6e8;
+    --gold-light: #a8d8f8;
+    --rust: #1e5fa8;
+    --sage: #4da6e8;
+    --slate: #1e3a5f;
+    --card-bg: #f0f7ff;
+    --shadow: rgba(26,35,51,0.15);
+    --accent: #0fa3b1;
+    --accent-light: #b2f0f6;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -30,23 +31,22 @@
     cursor: default;
   }
 
-  /* ── GRAIN OVERLAY ── */
+
   body::before {
     content: '';
     position: fixed; inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none; z-index: 9999;
-    opacity: 0.4;
+    opacity: 0.35;
   }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     padding: 4rem 2rem;
     position: relative;
-    background: linear-gradient(160deg, #3a352f 0%, #4a3f36 55%, #5c493d 100%);
+    background: linear-gradient(160deg, #0d1b2e 0%, #122540 55%, #1a3558 100%);
     overflow: hidden;
   }
 
@@ -57,9 +57,9 @@
     pointer-events: none;
     animation: float 8s ease-in-out infinite;
   }
-  .hero-orb:nth-child(1) { width: 500px; height: 500px; background: rgba(128,211,187,0.15); top: -100px; left: -100px; animation-delay: 0s; }
-  .hero-orb:nth-child(2) { width: 350px; height: 350px; background: rgba(186,253,194,0.12); bottom: -80px; right: -80px; animation-delay: 3s; }
-  .hero-orb:nth-child(3) { width: 250px; height: 250px; background: rgba(229,243,186,0.10); top: 40%; left: 60%; animation-delay: 5s; }
+  .hero-orb:nth-child(1) { width: 500px; height: 500px; background: rgba(77,166,232,0.18); top: -100px; left: -100px; animation-delay: 0s; }
+  .hero-orb:nth-child(2) { width: 350px; height: 350px; background: rgba(15,163,177,0.14); bottom: -80px; right: -80px; animation-delay: 3s; }
+  .hero-orb:nth-child(3) { width: 250px; height: 250px; background: rgba(168,216,248,0.10); top: 40%; left: 60%; animation-delay: 5s; }
 
   @keyframes float {
     0%,100% { transform: translateY(0) scale(1); }
@@ -73,7 +73,7 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--gold);
-    border: 1px solid rgba(128,211,187,0.4);
+    border: 1px solid rgba(77,166,232,0.4);
     padding: 0.35rem 1rem;
     border-radius: 2rem;
     margin-bottom: 2.5rem;
@@ -92,7 +92,6 @@
     opacity: 0;
     animation: fadeUp 0.9s 0.4s forwards;
   }
-
   .hero-title em {
     font-style: italic;
     color: var(--gold-light);
@@ -109,7 +108,7 @@
   .hero-subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(229,243,186,0.7);
+    color: rgba(238,244,251,0.7);
     text-align: center;
     letter-spacing: 0.05em;
     opacity: 0;
@@ -120,14 +119,14 @@
   .scroll-hint {
     position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-    color: rgba(229,243,186,0.4);
+    color: rgba(238,244,251,0.4);
     font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
     opacity: 0; animation: fadeUp 1s 1.4s forwards;
   }
   .scroll-hint::after {
     content: '';
     width: 1px; height: 40px;
-    background: linear-gradient(to bottom, rgba(128,211,187,0.5), transparent);
+    background: linear-gradient(to bottom, rgba(77,166,232,0.5), transparent);
     animation: scrollPulse 2s infinite;
   }
   @keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
@@ -137,7 +136,6 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── SECTIONS ── */
   .section {
     max-width: 860px;
     margin: 0 auto;
@@ -167,7 +165,6 @@
     color: var(--slate);
   }
 
-  /* ── THESIS ── */
   .thesis-block {
     background: var(--slate);
     color: var(--cream);
@@ -175,13 +172,13 @@
     padding: 3rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(58,53,47,0.25);
+    box-shadow: 0 20px 60px rgba(26,35,51,0.25);
   }
   .thesis-block::before {
     content: '\201C';
     font-family: 'Playfair Display', serif;
     font-size: 12rem;
-    color: rgba(128,211,187,0.12);
+    color: rgba(77,166,232,0.10);
     position: absolute;
     top: -2rem; left: 1rem;
     line-height: 1;
@@ -200,11 +197,10 @@
     font-weight: 700;
   }
 
-  /* ── BODY / ARGUMENTS ── */
   .args-intro {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.15rem;
-    color: #5c493d;
+    color: #2a4a6e;
     margin-bottom: 2.5rem;
     line-height: 1.7;
   }
@@ -217,10 +213,9 @@
   }
   @media(max-width:600px){ .args-grid{ grid-template-columns:1fr; } }
 
-  /* ── ARGUMENT BUTTONS ── */
   .arg-btn {
     background: none;
-    border: 1.5px solid rgba(92,73,61,0.2);
+    border: 1.5px solid rgba(30,58,95,0.2);
     border-radius: 1rem;
     padding: 1.2rem 1.5rem;
     cursor: pointer;
@@ -262,7 +257,7 @@
     position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
     width: 28px; height: 28px;
     border-radius: 50%;
-    background: rgba(128,211,187,0.15);
+    background: rgba(77,166,232,0.15);
     display: flex; align-items: center; justify-content: center;
     font-size: 0.8rem;
     transition: all 0.3s;
@@ -276,7 +271,6 @@
   .arg-btn:hover .arg-btn-icon,
   .arg-btn.active .arg-btn-icon { background: var(--gold); transform: translateY(-50%) rotate(45deg); }
 
-  /* ── CARDS ── */
   .cards-area { margin-top: 1.5rem; }
 
   .arg-card {
@@ -296,7 +290,7 @@
 
   .card-header {
     padding: 2rem 2.5rem 1.5rem;
-    border-bottom: 1px solid rgba(58,53,47,0.07);
+    border-bottom: 1px solid rgba(26,35,51,0.07);
     display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
   }
   .card-header-left { flex: 1; }
@@ -314,7 +308,7 @@
     color: var(--slate);
   }
   .card-close {
-    background: rgba(92,73,61,0.08);
+    background: rgba(30,58,95,0.08);
     border: none; cursor: pointer;
     width: 36px; height: 36px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -324,14 +318,13 @@
   }
   .card-close:hover { background: var(--rust); color: var(--cream); transform: rotate(90deg); }
 
-  .card-body {
-    padding: 2rem 2.5rem;
-  }
+  .card-body { padding: 2rem 2.5rem; }
+
   .card-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
     line-height: 1.85;
-    color: #3a352f;
+    color: #1a2333;
     margin-bottom: 1.5rem;
   }
   .card-text a {
@@ -342,7 +335,7 @@
   .card-text a:hover { color: var(--gold); border-color: var(--gold); }
 
   .card-highlight {
-    background: linear-gradient(135deg, rgba(128,211,187,0.12), rgba(186,253,194,0.10));
+    background: linear-gradient(135deg, rgba(77,166,232,0.10), rgba(15,163,177,0.08));
     border-left: 3px solid var(--gold);
     border-radius: 0 0.75rem 0.75rem 0;
     padding: 1rem 1.5rem;
@@ -353,88 +346,108 @@
     color: var(--slate);
   }
 
-  /* ── MEDIA UPLOAD AREA ── */
-  .media-section {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed rgba(92,73,61,0.15);
-  }
-  .media-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    font-weight: 500;
+  .img-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 1rem 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
   }
 
-  /* IMAGE UPLOAD */
-  .img-upload-area {
-    border: 2px dashed rgba(128,211,187,0.45);
-    border-radius: 1rem;
-    padding: 2rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    background: rgba(128,211,187,0.04);
-    position: relative;
-  }
-  .img-upload-area:hover { border-color: var(--gold); background: rgba(128,211,187,0.09); }
-  .img-upload-area input[type=file] {
-    position: absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%;
-  }
-  .img-upload-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-  .img-upload-text { font-size: 0.85rem; color: #888; }
-  .img-preview {
-    display: none;
-    width: 100%; max-height: 320px;
+  .img-wrapper img {
+    width: 100%;
+    max-height: 340px;
     object-fit: cover;
     border-radius: 0.75rem;
-    margin-top: 1rem;
+    margin: 0;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.5s ease,
+                box-shadow 0.5s ease;
     box-shadow: 0 8px 30px var(--shadow);
   }
 
-  /* AUDIO UPLOAD */
+  .img-wrapper:hover img {
+    transform: scale(1.04);
+    filter: brightness(0.82);
+    box-shadow: 0 18px 50px rgba(26,35,51,0.28);
+  }
+
+  .img-tooltip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(135deg, rgba(12,30,60,0.92), rgba(20,60,100,0.95));
+    backdrop-filter: blur(6px);
+    border-radius: 0 0.75rem 0.75rem 0;
+    overflow: hidden;
+    transition: width 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-wrapper:hover .img-tooltip {
+    width: 38%;
+  }
+
+  .img-tooltip-inner {
+    padding: 1.5rem 1.2rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s 0.15s ease, transform 0.3s 0.15s ease;
+    min-width: 160px;
+  }
+
+  .img-wrapper:hover .img-tooltip-inner {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .img-tooltip-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .img-tooltip-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+  }
+
+  .img-tooltip-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: rgba(238,244,251,0.78);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+
+  .media-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(30,58,95,0.15);
+  }
   .audio-upload-area {
     display: flex; align-items: center; gap: 1rem;
     flex-wrap: wrap;
   }
-  .audio-upload-btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--slate);
-    color: var(--cream);
-    border: none; cursor: pointer;
-    border-radius: 2rem;
-    padding: 0.7rem 1.4rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    transition: all 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .audio-upload-btn input[type=file] {
-    position: absolute; inset:0; opacity:0; cursor:pointer;
-  }
-  .audio-upload-btn:hover { background: var(--gold); color: var(--ink); }
-  .audio-upload-btn svg { width:16px; height:16px; fill:currentColor; }
 
-  .audio-player {
-    display: none;
-    flex: 1;
-    min-width: 200px;
-  }
-  .audio-player audio {
-    width: 100%;
-    height: 36px;
-    border-radius: 2rem;
-    outline: none;
-  }
-  .audio-player audio::-webkit-media-controls-panel {
-    background: var(--slate);
-  }
 
-  /* ── CONCLUSIONS ── */
   .conclusions-section {
-    background: linear-gradient(135deg, #3a352f 0%, #4a3f36 100%);
+    background: linear-gradient(135deg, #0d1b2e 0%, #122540 100%);
     padding: 5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -443,8 +456,16 @@
     content: '';
     position: absolute;
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(128,211,187,0.10) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(77,166,232,0.10) 0%, transparent 70%);
     top: -200px; right: -200px;
+    pointer-events: none;
+  }
+  .conclusions-section::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(15,163,177,0.08) 0%, transparent 70%);
+    bottom: -100px; left: -100px;
     pointer-events: none;
   }
   .conclusions-inner {
@@ -461,8 +482,8 @@
     margin-top: 2rem;
   }
   .conclusion-card {
-    background: rgba(229,243,186,0.07);
-    border: 1px solid rgba(128,211,187,0.25);
+    background: rgba(238,244,251,0.06);
+    border: 1px solid rgba(77,166,232,0.22);
     border-radius: 1.25rem;
     padding: 1.75rem;
     transition: all 0.3s;
@@ -471,23 +492,21 @@
   }
   .conclusion-card.visible { opacity:1; transform:translateY(0); }
   .conclusion-card:hover {
-    background: rgba(229,243,186,0.13);
-    border-color: rgba(128,211,187,0.55);
+    background: rgba(238,244,251,0.11);
+    border-color: rgba(77,166,232,0.5);
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0,0,0,0.3);
   }
-  .cc-icon { font-size: 1.8rem; margin-bottom: 1rem; }
   .cc-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     line-height: 1.75;
-    color: rgba(229,243,186,0.88);
+    color: rgba(238,244,251,0.88);
   }
 
-  /* ── FOOTER ── */
   footer {
-    background: #2a2520;
-    color: rgba(229,243,186,0.5);
+    background: #080f1a;
+    color: rgba(238,244,251,0.5);
     text-align: center;
     padding: 3rem 2rem;
     font-size: 0.85rem;
@@ -503,15 +522,14 @@
   }
   footer .divider-foot {
     width: 40px; height: 1px;
-    background: rgba(128,211,187,0.3);
+    background: rgba(77,166,232,0.3);
     margin: 1rem auto;
   }
 
-  /* ── MISC ── */
   .separator {
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(92,73,61,0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(30,58,95,0.15), transparent);
     margin: 0 auto;
     max-width: 860px;
   }
@@ -554,26 +572,28 @@
   <span class="hero-tag">Universidad de los Andes - Miguel Santiago Roa Vallejo - 202322288</span>
 
   <h1 class="hero-title">
-    Nuevos Medios: ¿La <em>Inteligencia Artificial</em> como un nuevo medio artista?
+    ¿La <em>Inteligencia Artificial</em> como un artista que produzca nuevos medios?
   </h1>
 
   <div class="hero-divider"></div>
 
-  <p class="hero-subtitle">En esta página se encuentra el trabajo final del CBU: Nuevos Medios.</p>
-  <p class="hero-subtitle">Para su desarrollo se utilizó la base de WIX, y se descargó su código en formato HTML para poder editarlo y personalizarlo.</p>
-  <p class="hero-subtitle">Justamente y dado que estudio Ingenieria de Sistemas (sexto semestre), quería aplicar los conceptos vistos en diversas materias de programación para el trabajo final. Por lo tanto, se utilizan los conceptos vistos en el curso 'Programación con Tecnologías WEB', la documentación de JavaScript y para solucionar bugs relacionados al código, se consultó a ChatGPT.</p>
-
+  <p class="hero-subtitle">En esta página se encuentra el trabajo final del CBU Nuevos Medios.</p>
+  <p class="hero-subtitle">Para su desarrollo se utilizó la base de WIX, y se descargó su código en formato HTML para poder editarlo y personalizarlo
+    (dado que me encuentro en Sexto Semestre de Ingeniería de Sistemas y quería aplicar lo visto en cursos de la carrera).</p>
+  
   <div class="scroll-hint">Explorar</div>
 </header>
 
 <section class="section" id="thesis-section">
-  <h2 class="section-title">Tesis</h2>
+  <h2 class="section-title">Tésis</h2>
   <div class="thesis-block shimmer">
     <p class="thesis-text">
-      No obstante la inteligencia artificial se encuentre en su periodo de máximo desarrollo y aplicación,
-      logrando nuevos medios digitales, esta no podrá producir un nuevo tipo de arte que reemplace al ser
-      humano como <strong>'artista'</strong>, quedándose como una herramienta que ayude al artista, pues
-      la IA carece de algo que el artista sí tiene: <strong>sentimientos</strong>.
+
+      'A pesar de que la inteligencia artificial se encuentre en su periodo de máximo desarrollo y aplicación, 
+      logrando nuevos medios digitales, esta no podrá producir un nuevo tipo de arte que reemplace al ser humano 
+      como <strong>'artista'</strong>. Más bien, se consolidará como una herramienta que lo apoye, ya que carece de algo fundamental
+      que sí posee el artista: <strong>los sentimientos</strong>.
+
     </p>
   </div>
 </section>
@@ -597,29 +617,29 @@
   <div class="args-grid">
     <button class="arg-btn" onclick="toggleCard('card1', this)" id="btn1">
       <div class="arg-btn-inner">
-        <span class="arg-btn-num">Argumento 01</span>
+        <span class="arg-btn-num">Argumento 1</span>
         <span class="arg-btn-title">La experiencia sensorial y la IA</span>
       </div>
       <div class="arg-btn-icon">+</div>
     </button>
     <button class="arg-btn" onclick="toggleCard('card2', this)" id="btn2">
       <div class="arg-btn-inner">
-        <span class="arg-btn-num">Argumento 02</span>
+        <span class="arg-btn-num">Argumento 2</span>
         <span class="arg-btn-title">Emociones simuladas vs. sentidas</span>
       </div>
       <div class="arg-btn-icon">+</div>
     </button>
     <button class="arg-btn" onclick="toggleCard('card3', this)" id="btn3">
       <div class="arg-btn-inner">
-        <span class="arg-btn-num">Argumento 03</span>
+        <span class="arg-btn-num">Argumento 3</span>
         <span class="arg-btn-title">La IA como herramienta del artista</span>
       </div>
       <div class="arg-btn-icon">+</div>
     </button>
     <button class="arg-btn" onclick="toggleCard('card4', this)" id="btn4">
       <div class="arg-btn-inner">
-        <span class="arg-btn-num">Argumento 04</span>
-        <span class="arg-btn-title">La IA y la mímesis musical</span>
+        <span class="arg-btn-num">Argumento 4</span>
+        <span class="arg-btn-title">La IA y la generación de música</span>
       </div>
       <div class="arg-btn-icon">+</div>
     </button>
@@ -655,7 +675,16 @@
           empírica externa que ha tenido con el ambiente. Un ejemplo de esto se presenta a continuación:
         </p>
 
-        <img src="./9_Bisonte_Magdaleniense_polícromo.jpg" alt="Imagen Bisonte">
+        <div class="img-wrapper">
+          <img src="./9_Bisonte_Magdaleniense_polícromo.jpg" alt="Bisonte de Altamira">
+          <div class="img-tooltip">
+            <div class="img-tooltip-inner">
+              <div class="img-tooltip-label">Arte Rupestre</div>
+              <div class="img-tooltip-title">Bisonte Magdaleniense Polícromo</div>
+              <div class="img-tooltip-desc">Una de las pinturas vistas en el curso. </div>
+            </div>
+          </div>
+        </div>
 
         <p class="card-text">
           Justamente, una de las primeras formas de arte llegó a ser por medio de experiencias personales que los
@@ -677,9 +706,9 @@
       </div>
       <div class="card-body">
         <p class="card-text">
-          Ahora bien, algunas personas podrían decir que la IA si puede llegar a tener sentimientos de la misma forma en cómo
-          lo hace el ser humano. Sin embargo, y cómo lo muestra el artículo 'If AI only had a heart: Why artificial intelligence
-          research needs to take emotions more seriusly', las emociones que puede llegar a tener van a ser simples órdenes
+          Ahora bien, algunas personas podrían decir que la IA sí puede llegar a tener sentimientos de la misma forma en cómo
+          lo hace el ser humano. Sin embargo, y como lo muestra el artículo 'If AI only had a heart: Why artificial intelligence
+          research needs to take emotions more seriously', las emociones que puede llegar a tener van a ser simples órdenes
           que sus programadores le impondrían. Precisamente, uno de los factores importantes al momento de hablar del funcionamiento
           de la inteligencia artificial es el concepto de 'Descenso de Gradiente', el cual se basa en pasarle una serie de parámetros
           a una función de programación, que va a arrojar un resultado (que es finalmente la respuesta de la Inteligencia artificial).
@@ -723,14 +752,23 @@
           La IA ha demostrado ser una herramienta valiosa para los artistas que buscan nuevas formas de expresión y exploración creativa.
         </div>
 
-        <img src="./fotoIA.png" alt="foto por ia">
+        <div class="img-wrapper">
+          <img src="./fotoIA.png" alt="Imagen generada por IA">
+          <div class="img-tooltip">
+            <div class="img-tooltip-inner">
+              <div class="img-tooltip-label">Arte con IA</div>
+              <div class="img-tooltip-title">Imagen generada por Inteligencia Artificial</div>
+              <div class="img-tooltip-desc">Ejemplo de obra visual creada mediante modelos generativos. La IA actúa como instrumento al servicio de la visión creativa del artista humano.</div>
+            </div>
+          </div>
+        </div>
 
         <p class="card-text">
           De esta manera, se evidencia el hecho de cómo la IA más allá de ser un generador de arte por sí mismo, se vuelve más bien
-          una herramienta que el artista pueda utilizar. Por lo tanto, no se puede negar el rol de la IA cómo creador de un
+          una herramienta que el artista pueda utilizar. Por lo tanto, no se puede negar el rol de la IA como creador de un
           tipo de un nuevo medio de expresión: sin embargo, más que ser un creador por su cuenta, es una herramienta utilizada
           por el artista en sí. Complementando lo anterior se encuentra el caso de una amiga estudiante de Artes Visuales en la Universidad Javeriana,
-          que explica cómo le han llegado explicar en su rama de 'Artes electrónicas' el uso de inteligencia artificial cómo una herramienta para
+          que explica cómo le han llegado a explicar en su rama de 'Artes electrónicas' el uso de inteligencia artificial como una herramienta para
           producir medios artísticos. En el audio adjunto se presenta la breve entrevista hecha a la estudiante.
         </p>
 
@@ -749,7 +787,7 @@
       <div class="card-header">
         <div class="card-header-left">
           <div class="card-num">Argumento 04</div>
-          <div class="card-title">La IA y la mímesis musical</div>
+          <div class="card-title">La IA y la generación de música</div>
         </div>
         <button class="card-close" onclick="closeCard('card4', 'btn4')">✕</button>
       </div>
@@ -809,20 +847,17 @@
 
     <div class="conclusion-grid">
       <div class="conclusion-card">
-        <div class="cc-icon">🧠</div>
-        <p class="cc-text">La IA carece de la experiencia sensorial y empírica que origina el arte humano. No siente, no vive, no sufre: solo procesa patrones estadísticos de lo que los humanos ya crearon.</p>
-      </div>
-      <div class="conclusion-card">
-        <div class="cc-icon">❤️</div>
-        <p class="cc-text">Las "emociones" de la IA son construcciones programadas. No hay un sujeto que experimente; hay funciones que simulan. El arte verdadero nace de quién lo siente, no de quién lo calcula.</p>
-      </div>
-      <div class="conclusion-card">
-        <div class="cc-icon">🛠️</div>
-        <p class="cc-text">La IA es una poderosa herramienta al servicio del artista. El artista que conoce su oficio puede usarla para amplificar su visión; sin esa visión humana, la obra permanece vacía.</p>
-      </div>
-      <div class="conclusion-card">
-        <div class="cc-icon">🔄</div>
-        <p class="cc-text">La IA solo puede replicar y recombinar lo que ya existe. No puede inaugurar un movimiento radicalmente nuevo, pues no tiene la subjetividad que impulsa las grandes rupturas artísticas.</p>
+        <p class="cc-text">
+          Con base en todo lo mencionado anteriormente, es posible concluir que la Inteligencia Artificial efectivamente tiene
+          la capacidad de producir obras artísticas. Sin embargo, todas estas producciones se van a limitar a imitar
+          el arte que ya existe con anterioridad, llevando a que por lo tanto la IA no pueda crear un nuevo tipo de arte.
+          Por lo tanto, la IA se quedaría como una entidad incapaz de reemplazar al artista, quien debido a tener
+          la capacidad de sentir de una forma distinta experiencias empíricas, va a poder producir nuevo tipo de arte,
+          utilizando a la IA como una herramienta más en su producción y creación artística. En cuanto a esto último,
+          pueden surgir una serie de interrogantes, tales como: ¿de qué manera el artista va a utilizar la IA en un futuro?,
+          ¿llegará un punto en que la tecnología avance tanto hasta el punto de que estas herramientas se conviertan
+          sí mismas en artistas independientes?
+        </p>
       </div>
     </div>
   </div>
@@ -830,10 +865,10 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-logo">Universidad de los Andes</div>
+  <div class="footer-logo">Universidad de los Andes · 2026</div>
   <div class="divider-foot"></div>
-  <div><strong>Curso:</strong> CBU Nuevos Medios</div>
-  <div><strong>Hecho por:</strong> Miguel Santiago Roa Vallejo</div>
+  <div><strong>Curso:</strong> CBU: Nuevos Medios</div>
+  <div><strong>Hecho por:</strong> Miguel Santiago Roa Vallejo · 202322288</div>
 </footer>
 
 <script>
