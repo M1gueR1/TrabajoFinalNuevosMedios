@@ -4,589 +4,632 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nuevos Medios: ¿La IA como un nuevo medio artista?</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a2333;
-    --cream: #eef4fb;
-    --gold: #4da6e8;
-    --gold-light: #a8d8f8;
-    --rust: #1e5fa8;
-    --sage: #4da6e8;
-    --slate: #1e3a5f;
-    --card-bg: #f0f7ff;
-    --shadow: rgba(26,35,51,0.15);
-    --accent: #0fa3b1;
-    --accent-light: #b2f0f6;
+    --navy: #1a2d5a;
+    --navy-mid: #2a4080;
+    --lavender-bg: #e8ecf8;
+    --lavender-mid: #d0d8f0;
+    --lavender-light: #f0f3fc;
+    --lavender-section: #dde3f4;
+    --white: #ffffff;
+    --text-dark: #1a2d5a;
+    --text-mid: #2a4080;
+    --text-body: #344060;
+    --accent: #3a5bbf;
+    --accent-light: #6a8fd8;
+    --gold: #c9a84c;
+    --shadow: rgba(26,45,90,0.12);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
+    background: var(--lavender-bg);
+    color: var(--text-dark);
+    font-family: 'Source Sans 3', sans-serif;
     overflow-x: hidden;
-    cursor: default;
   }
 
-
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 9999;
-    opacity: 0.35;
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    padding: 0.9rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(26,45,90,0.3);
   }
+  .nav-brand {
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.03em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    border: none;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: #fff; }
 
+  /* ── HERO ── */
   .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 4rem 2rem;
+    background: var(--navy);
+    padding: 5rem 2rem 4.5rem;
+    text-align: center;
     position: relative;
-    background: linear-gradient(160deg, #0d1b2e 0%, #122540 55%, #1a3558 100%);
     overflow: hidden;
   }
-
-  .hero-orb {
+  .hero::after {
+    content: '';
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    animation: float 8s ease-in-out infinite;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--lavender-bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
   }
-  .hero-orb:nth-child(1) { width: 500px; height: 500px; background: rgba(77,166,232,0.18); top: -100px; left: -100px; animation-delay: 0s; }
-  .hero-orb:nth-child(2) { width: 350px; height: 350px; background: rgba(15,163,177,0.14); bottom: -80px; right: -80px; animation-delay: 3s; }
-  .hero-orb:nth-child(3) { width: 250px; height: 250px; background: rgba(168,216,248,0.10); top: 40%; left: 60%; animation-delay: 5s; }
-
-  @keyframes float {
-    0%,100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-30px) scale(1.05); }
-  }
-
   .hero-tag {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(77,166,232,0.4);
-    padding: 0.35rem 1rem;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.4rem 1.2rem;
     border-radius: 2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
+    animation: fadeUp 0.7s 0.2s forwards;
   }
-
   .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 6vw, 5rem);
+    font-family: 'Merriweather', serif;
+    font-size: clamp(2rem, 5.5vw, 4.2rem);
     font-weight: 900;
-    color: var(--cream);
-    text-align: center;
-    line-height: 1.1;
-    max-width: 900px;
+    color: #fff;
+    line-height: 1.15;
+    max-width: 820px;
+    margin: 0 auto 1.5rem;
     opacity: 0;
-    animation: fadeUp 0.9s 0.4s forwards;
+    animation: fadeUp 0.8s 0.4s forwards;
   }
   .hero-title em {
     font-style: italic;
-    color: var(--gold-light);
+    color: #a8c4f0;
   }
-
-  .hero-divider {
-    width: 80px; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 2.5rem auto;
+  .hero-line {
+    width: 60px; height: 3px;
+    background: var(--gold);
+    margin: 1.8rem auto;
     opacity: 0;
-    animation: fadeUp 0.8s 0.7s forwards;
+    animation: fadeUp 0.6s 0.7s forwards;
   }
-
-  .hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(238,244,251,0.7);
-    text-align: center;
-    letter-spacing: 0.05em;
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+    margin: 0 auto 0.6rem;
+    line-height: 1.7;
     opacity: 0;
-    animation: fadeUp 0.8s 0.9s forwards;
-    margin-bottom: 0.5rem;
+    animation: fadeUp 0.7s 0.9s forwards;
   }
-
-  .scroll-hint {
-    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-    color: rgba(238,244,251,0.4);
-    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    opacity: 0; animation: fadeUp 1s 1.4s forwards;
-  }
-  .scroll-hint::after {
-    content: '';
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, rgba(77,166,232,0.5), transparent);
-    animation: scrollPulse 2s infinite;
-  }
-  @keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  .hero-sub + .hero-sub { animation-delay: 1.05s; }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(22px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .section {
-    max-width: 860px;
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 900px;
     margin: 0 auto;
-    padding: 5rem 2rem;
+    padding: 0 2rem;
+  }
+
+  .section {
+    padding: 4.5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(30px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
   }
   .section.visible { opacity: 1; transform: translateY(0); }
 
-  .section-label {
-    font-family: 'DM Sans', sans-serif;
+  .section-eyebrow {
     font-size: 0.65rem;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--lavender-mid);
   }
 
   .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 700;
-    line-height: 1.25;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 900;
+    color: var(--navy);
     margin-bottom: 1.5rem;
-    color: var(--slate);
+    line-height: 1.25;
   }
 
+  /* ── THESIS ── */
   .thesis-block {
-    background: var(--slate);
-    color: var(--cream);
-    border-radius: 1.5rem;
-    padding: 3rem;
+    background: var(--navy);
+    border-radius: 1.2rem;
+    padding: 3rem 3.5rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(26,35,51,0.25);
+    box-shadow: 0 16px 50px rgba(26,45,90,0.2);
   }
   .thesis-block::before {
     content: '\201C';
-    font-family: 'Playfair Display', serif;
-    font-size: 12rem;
-    color: rgba(77,166,232,0.10);
+    font-family: 'Merriweather', serif;
+    font-size: 14rem;
+    color: rgba(255,255,255,0.05);
     position: absolute;
-    top: -2rem; left: 1rem;
+    top: -3rem; left: 1.5rem;
     line-height: 1;
     pointer-events: none;
   }
+  .thesis-block::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15), transparent 70%);
+  }
   .thesis-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-family: 'Lora', serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-style: italic;
-    line-height: 1.8;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.9);
     position: relative; z-index: 1;
   }
   .thesis-text strong {
-    color: var(--gold-light);
     font-style: normal;
     font-weight: 700;
+    color: #a8c4f0;
   }
 
+  /* ── AUDIO ── */
+  .audio-wrapper {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--accent);
+  }
+  .audio-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+  audio { width: 100%; border-radius: 2rem; }
+
+  /* ── ARGS GRID ── */
   .args-intro {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    color: #2a4a6e;
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    margin-bottom: 2rem;
   }
 
   .args-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
-  @media(max-width:600px){ .args-grid{ grid-template-columns:1fr; } }
+  @media(max-width:560px){ .args-grid { grid-template-columns: 1fr; } }
 
   .arg-btn {
-    background: none;
-    border: 1.5px solid rgba(30,58,95,0.2);
+    background: var(--white);
+    border: 2px solid transparent;
     border-radius: 1rem;
-    padding: 1.2rem 1.5rem;
+    padding: 1.4rem 1.6rem 1.4rem 1.4rem;
     cursor: pointer;
     text-align: left;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 2px 12px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
   }
-  .arg-btn::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: var(--slate);
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-    z-index: 0;
+  .arg-btn:hover, .arg-btn.active {
+    border-color: var(--accent);
+    background: var(--navy);
+    box-shadow: 0 8px 30px rgba(26,45,90,0.22);
+    transform: translateY(-2px);
   }
-  .arg-btn:hover::before,
-  .arg-btn.active::before { transform: translateY(0); }
 
-  .arg-btn-inner { position: relative; z-index: 1; }
-
+  .arg-btn-inner { flex: 1; }
   .arg-btn-num {
     display: block;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.4rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
     transition: color 0.3s;
   }
   .arg-btn-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--slate);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
     transition: color 0.3s;
   }
   .arg-btn-icon {
-    position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
-    width: 28px; height: 28px;
+    width: 30px; height: 30px;
     border-radius: 50%;
-    background: rgba(77,166,232,0.15);
+    background: var(--lavender-mid);
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--navy);
+    flex-shrink: 0;
     transition: all 0.3s;
-    z-index: 1;
   }
 
   .arg-btn:hover .arg-btn-num,
-  .arg-btn.active .arg-btn-num { color: var(--gold-light); }
+  .arg-btn.active .arg-btn-num { color: #a8c4f0; }
   .arg-btn:hover .arg-btn-title,
-  .arg-btn.active .arg-btn-title { color: var(--cream); }
+  .arg-btn.active .arg-btn-title { color: #fff; }
   .arg-btn:hover .arg-btn-icon,
-  .arg-btn.active .arg-btn-icon { background: var(--gold); transform: translateY(-50%) rotate(45deg); }
+  .arg-btn.active .arg-btn-icon {
+    background: var(--gold);
+    color: var(--navy);
+    transform: rotate(45deg);
+  }
 
-  .cards-area { margin-top: 1.5rem; }
-
+  /* ── CARDS ── */
   .arg-card {
     display: none;
-    background: var(--card-bg);
-    border-radius: 1.5rem;
+    background: var(--white);
+    border-radius: 1.2rem;
     overflow: hidden;
     box-shadow: 0 10px 50px var(--shadow);
-    animation: cardReveal 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
+    animation: cardIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards;
+    border-top: 4px solid var(--navy);
   }
   .arg-card.active { display: block; }
 
-  @keyframes cardReveal {
-    from { opacity:0; transform: translateY(20px) scale(0.97); }
-    to   { opacity:1; transform: translateY(0) scale(1); }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(18px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   .card-header {
-    padding: 2rem 2.5rem 1.5rem;
-    border-bottom: 1px solid rgba(26,35,51,0.07);
+    padding: 1.8rem 2.2rem 1.4rem;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
     display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
   }
-  .card-header-left { flex: 1; }
   .card-num {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+    font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: rgba(255,255,255,0.55);
     margin-bottom: 0.3rem;
   }
   .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: var(--slate);
+    color: #fff;
+    line-height: 1.3;
   }
   .card-close {
-    background: rgba(30,58,95,0.08);
+    background: rgba(255,255,255,0.12);
     border: none; cursor: pointer;
-    width: 36px; height: 36px; border-radius: 50%;
+    width: 34px; height: 34px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; color: var(--slate);
-    transition: all 0.2s;
+    font-size: 1rem; color: #fff;
     flex-shrink: 0;
+    transition: all 0.2s;
   }
-  .card-close:hover { background: var(--rust); color: var(--cream); transform: rotate(90deg); }
+  .card-close:hover { background: rgba(255,255,255,0.25); transform: rotate(90deg); }
 
-  .card-body { padding: 2rem 2.5rem; }
+  .card-body {
+    padding: 2rem 2.2rem 2.2rem;
+    background: var(--lavender-light);
+  }
 
   .card-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
     line-height: 1.85;
-    color: #1a2333;
-    margin-bottom: 1.5rem;
+    color: var(--text-body);
+    margin-bottom: 1.4rem;
   }
+  .card-text strong { color: var(--navy); }
   .card-text a {
-    color: var(--rust);
+    color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px dotted var(--rust);
+    border-bottom: 1px dotted var(--accent);
   }
-  .card-text a:hover { color: var(--gold); border-color: var(--gold); }
+  .card-text a:hover { color: var(--navy); border-color: var(--navy); }
 
   .card-highlight {
-    background: linear-gradient(135deg, rgba(77,166,232,0.10), rgba(15,163,177,0.08));
-    border-left: 3px solid var(--gold);
+    background: var(--lavender-section);
+    border-left: 4px solid var(--gold);
     border-radius: 0 0.75rem 0.75rem 0;
     padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
-    font-family: 'Cormorant Garamond', serif;
+    margin: 1.4rem 0;
+    font-family: 'Lora', serif;
     font-style: italic;
-    font-size: 1.05rem;
-    color: var(--slate);
+    font-size: 1rem;
+    color: var(--navy-mid);
+    line-height: 1.7;
   }
 
+  /* ── IMAGES ── */
   .img-wrapper {
     position: relative;
-    display: inline-block;
     width: 100%;
-    margin: 1rem 0;
+    margin: 1.2rem 0;
     overflow: hidden;
-    border-radius: 0.75rem;
+    border-radius: 0.85rem;
   }
-
   .img-wrapper img {
     width: 100%;
-    max-height: 340px;
+    max-height: 320px;
     object-fit: cover;
-    border-radius: 0.75rem;
-    margin: 0;
+    border-radius: 0.85rem;
     display: block;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                filter 0.5s ease,
-                box-shadow 0.5s ease;
-    box-shadow: 0 8px 30px var(--shadow);
+    transition: transform 0.5s ease, filter 0.5s ease;
+    box-shadow: 0 6px 24px var(--shadow);
   }
-
-  .img-wrapper:hover img {
-    transform: scale(1.04);
-    filter: brightness(0.82);
-    box-shadow: 0 18px 50px rgba(26,35,51,0.28);
-  }
+  .img-wrapper:hover img { transform: scale(1.04); filter: brightness(0.78); }
 
   .img-tooltip {
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(135deg, rgba(12,30,60,0.92), rgba(20,60,100,0.95));
+    top: 0; right: 0;
+    height: 100%; width: 0;
+    background: linear-gradient(135deg, rgba(26,45,90,0.93), rgba(42,64,128,0.95));
     backdrop-filter: blur(6px);
-    border-radius: 0 0.75rem 0.75rem 0;
+    border-radius: 0 0.85rem 0.85rem 0;
     overflow: hidden;
-    transition: width 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: width 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    display: flex; align-items: center; justify-content: center;
   }
-
-  .img-wrapper:hover .img-tooltip {
-    width: 38%;
-  }
-
+  .img-wrapper:hover .img-tooltip { width: 40%; }
   .img-tooltip-inner {
     padding: 1.5rem 1.2rem;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: opacity 0.3s 0.15s ease, transform 0.3s 0.15s ease;
-    min-width: 160px;
+    opacity: 0; transform: translateX(20px);
+    transition: opacity 0.3s 0.15s, transform 0.3s 0.15s;
+    min-width: 150px;
   }
-
-  .img-wrapper:hover .img-tooltip-inner {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
+  .img-wrapper:hover .img-tooltip-inner { opacity: 1; transform: translateX(0); }
   .img-tooltip-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    font-family: 'DM Sans', sans-serif;
+    font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: #a8c4f0; margin-bottom: 0.5rem;
+    font-family: 'Source Sans 3', sans-serif;
   }
-
   .img-tooltip-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--cream);
-    line-height: 1.3;
-    margin-bottom: 0.6rem;
+    font-family: 'Merriweather', serif;
+    font-size: 0.88rem; font-weight: 700;
+    color: #fff; line-height: 1.35; margin-bottom: 0.5rem;
   }
-
   .img-tooltip-desc {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    color: rgba(238,244,251,0.78);
-    line-height: 1.6;
-    font-style: italic;
+    font-family: 'Lora', serif;
+    font-size: 0.82rem; font-style: italic;
+    color: rgba(255,255,255,0.72); line-height: 1.55;
   }
 
-
-  .media-section {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed rgba(30,58,95,0.15);
-  }
-  .audio-upload-area {
-    display: flex; align-items: center; gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-
+  /* ── CONCLUSIONS ── */
   .conclusions-section {
-    background: linear-gradient(135deg, #0d1b2e 0%, #122540 100%);
+    background: var(--navy);
     padding: 5rem 2rem;
     position: relative;
     overflow: hidden;
   }
   .conclusions-section::before {
     content: '';
-    position: absolute;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(77,166,232,0.10) 0%, transparent 70%);
-    top: -200px; right: -200px;
-    pointer-events: none;
-  }
-  .conclusions-section::after {
-    content: '';
-    position: absolute;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(15,163,177,0.08) 0%, transparent 70%);
-    bottom: -100px; left: -100px;
-    pointer-events: none;
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--lavender-bg);
+    clip-path: ellipse(55% 100% at 50% 0%);
   }
   .conclusions-inner {
-    max-width: 860px; margin: 0 auto;
-    position: relative; z-index:1;
+    max-width: 900px; margin: 0 auto;
+    position: relative; z-index: 1;
+    padding-top: 1rem;
   }
-  .conclusions-inner .section-label { color: var(--gold); }
-  .conclusions-inner .section-title { color: var(--cream); }
+  .conclusions-inner .section-eyebrow { color: #a8c4f0; }
+  .conclusions-inner .section-eyebrow::after { background: rgba(255,255,255,0.15); }
+  .conclusions-inner .section-title { color: #fff; }
 
   .conclusion-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 2rem;
   }
   .conclusion-card {
-    background: rgba(238,244,251,0.06);
-    border: 1px solid rgba(77,166,232,0.22);
-    border-radius: 1.25rem;
-    padding: 1.75rem;
-    transition: all 0.3s;
-    opacity: 0;
-    transform: translateY(20px);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(168,196,240,0.25);
+    border-radius: 1.1rem;
+    padding: 2rem 2.2rem;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.35s ease;
   }
-  .conclusion-card.visible { opacity:1; transform:translateY(0); }
+  .conclusion-card.visible { opacity: 1; transform: translateY(0); }
   .conclusion-card:hover {
-    background: rgba(238,244,251,0.11);
-    border-color: rgba(77,166,232,0.5);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(168,196,240,0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
   }
   .cc-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(238,244,251,0.88);
+    font-family: 'Lora', serif;
+    font-size: 1rem; line-height: 1.85;
+    color: rgba(255,255,255,0.88);
   }
 
+  /* ── SEPARATOR ── */
+  .sep {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--lavender-mid), transparent);
+    max-width: 900px; margin: 0 auto;
+  }
+
+  /* ── FOOTER ── */
   footer {
-    background: #080f1a;
-    color: rgba(238,244,251,0.5);
+    background: #0e1a38;
+    color: rgba(255,255,255,0.45);
     text-align: center;
     padding: 3rem 2rem;
-    font-size: 0.85rem;
-    line-height: 1.9;
+    font-size: 0.82rem; line-height: 2;
   }
-  footer strong { color: var(--gold); font-weight: 500; }
-  footer .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--cream);
-    margin-bottom: 1rem;
-    letter-spacing: 0.05em;
+  .footer-logo {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 0.8rem;
   }
-  footer .divider-foot {
+  footer strong { color: #a8c4f0; font-weight: 600; }
+  .footer-sep {
     width: 40px; height: 1px;
-    background: rgba(77,166,232,0.3);
-    margin: 1rem auto;
+    background: rgba(168,196,240,0.3);
+    margin: 0.8rem auto;
   }
 
-  .separator {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(30,58,95,0.15), transparent);
-    margin: 0 auto;
-    max-width: 860px;
+  /* media section */
+  .media-section {
+    margin-top: 1.8rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed var(--lavender-mid);
   }
 
-  .arg-btn:last-child { grid-column: 1 / -1; }
-  @media(min-width:601px){ .arg-btn:nth-child(4) { grid-column: auto; } }
+  /* links */
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+  a:hover { color: var(--navy); border-color: var(--navy); }
 
-  .shimmer {
-    position: relative; overflow: hidden;
-  }
-  .shimmer::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.06) 50%, transparent 70%);
-    transform: translateX(-100%);
-    animation: shimmer 3s 1.5s infinite;
-  }
-  @keyframes shimmer { to { transform: translateX(200%); } }
+  img { max-width: 100%; border-radius: 0.75rem; margin: 0.8rem 0; }
 
-  img {
-    max-width: 100%;
-    border-radius: 0.75rem;
-    margin: 1rem 0;
-  }
-  a {
-    color: var(--rust);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--rust);
-  }
-  a:hover { color: var(--gold); border-color: var(--gold); }
+  /* ── BIBLIOGRAFÍA ── */
+.bib-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.bib-entry {
+  background: var(--white);
+  border-radius: 0.85rem;
+  padding: 1.2rem 1.6rem 1.2rem 1.4rem;
+  box-shadow: 0 2px 12px var(--shadow);
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  border-left: 4px solid transparent;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.bib-entry:hover {
+  border-left-color: var(--accent);
+  transform: translateX(5px);
+  box-shadow: 0 6px 24px rgba(26,45,90,0.16);
+}
+.bib-entry:nth-child(3n+2):hover { border-left-color: var(--gold); }
+.bib-entry:nth-child(3n):hover   { border-left-color: var(--accent-light); }
+.bib-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  min-width: 26px;
+  padding-top: 0.25rem;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.bib-text {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  line-height: 1.78;
+  color: var(--text-body);
+}
+.bib-text em { font-style: italic; }
+.bib-text a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+  word-break: break-all;
+  font-size: 0.85rem;
+}
+.bib-text a:hover { color: var(--navy); border-color: var(--navy); }
+
 </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-brand">CBU Trabajo final: Nuevos Medios</div>
+  <ul class="nav-links">
+    <li><a href="#thesis-section">Tésis</a></li>
+    <li><a href="#body-section">Argumentos</a></li>
+    <li><a href="#conclusions-section">Conclusiones</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
 <header class="hero">
-  <div class="hero-orb"></div>
-  <div class="hero-orb"></div>
-  <div class="hero-orb"></div>
-
   <span class="hero-tag">Universidad de los Andes - Miguel Santiago Roa Vallejo - 202322288</span>
-
   <h1 class="hero-title">
     ¿La <em>Inteligencia Artificial</em> como un artista que produzca nuevos medios?
   </h1>
-
-  <div class="hero-divider"></div>
-
-  <p class="hero-subtitle">En esta página se encuentra el trabajo final del CBU Nuevos Medios.</p>
-  <p class="hero-subtitle">Para su desarrollo se utilizó la base de WIX, y se descargó su código en formato HTML para poder editarlo y personalizarlo
-    (dado que me encuentro en Sexto Semestre de Ingeniería de Sistemas y quería aplicar lo visto en cursos de la carrera).</p>
+  <div class="hero-line"></div>
+  <p class="hero-sub">Trabajo final del CBU Nuevos Medios.</p>
   
-  <div class="scroll-hint">Explorar</div>
 </header>
 
+<!-- ── THESIS ── -->
 <section class="section" id="thesis-section">
+  <div class="section-eyebrow">Proposición central</div>
   <h2 class="section-title">Tésis</h2>
-  <div class="thesis-block shimmer">
+  <div class="thesis-block">
     <p class="thesis-text">
 
       'A pesar de que la inteligencia artificial se encuentre en su periodo de máximo desarrollo y aplicación, 
@@ -598,21 +641,23 @@
   </div>
 </section>
 
-<div class="separator"></div>
+<div class="sep"></div>
 
+<!-- ── BODY ── -->
 <section class="section" id="body-section">
-  <div class="section-label">Introducción</div>
+  <div class="section-eyebrow">Introducción</div>
 
-  <div class="media-section">
-    <div class="audio-upload-area">
-      <audio controls style="width:100%; border-radius:2rem;">
-        <source src="audio_argumento2.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+  <div class="audio-wrapper">
+    <div class="audio-label">Audio — Introducción</div>
+    <audio controls>
+      <source src="audio_argumento2.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
-  <div class="section-label" style="margin-top:2rem;">Desarrollo</div>
-  <h2 class="section-title">Cuerpo Argumentativo</h2>
+  <div class="section-eyebrow" style="margin-top:2.5rem;">Desarrollo</div>
+  <h2 class="section-title">Cuerpo</h2>
+
+  <p class="args-intro">Selecciona cada argumento para expandir su desarrollo y análisis.</p>
 
   <div class="args-grid">
     <button class="arg-btn" onclick="toggleCard('card1', this)" id="btn1">
@@ -650,11 +695,11 @@
     <!-- CARD 1 -->
     <div class="arg-card" id="card1">
       <div class="card-header">
-        <div class="card-header-left">
-          <div class="card-num">Argumento 01</div>
+        <div>
+          <div class="card-num">Argumento 1</div>
           <div class="card-title">La experiencia sensorial y la IA</div>
         </div>
-        <button class="card-close" onclick="closeCard('card1', 'btn1')">✕</button>
+        <button class="card-close" onclick="closeCard('card1','btn1')">✕</button>
       </div>
       <div class="card-body">
         <p class="card-text">
@@ -664,7 +709,7 @@
           resfriar, haciendo que se vean en la obligación de escamparse. Todo lo anterior permite mostrar que los humanos
           son seres que están interactuando constantemente con el exterior, lo cual genera en ellos inevitablemente una serie
           de sentimientos. Puntualmente, en 'Foundations of experimental psychology' se menciona que el sentir
-          se deriva de fenómenos observables y/o estímulos con el externo (Nafe, 1929). En contraposición con lo anterior, y
+          se deriva de fenómenos observables y/o estímulos con el externo <strong>(Nafe, 1929)</strong>. En contraposición con lo anterior, y
           como define Margaret A. Boden en su texto 'AI, its nature and future', la Inteligencia Artificial es una máquina virtual, es decir, que existe de una forma no tangible, y por lo tanto,
           no puede tener contacto con estímulos externos de la misma forma en como el humano lo hace, pues este último
           tiene organos sensoriales que le permiten esto. Por lo tanto, la forma en como la IA puede llegar a comunicarse
@@ -673,28 +718,21 @@
           se comunica al exterior con su propio cuerpo.
 
         </p>
-
-
-
         <p class="card-text">
           Ahora bien, es importante notar que en muchas situaciones la inspiración del artista es una consecuencia de una experiencia
           empírica externa que ha tenido con el ambiente. Un ejemplo de esto se presenta a continuación, en donde se observa 
           la pintura del bisonte magdaleniense, figura del arte rupestre del paleolítico:
         </p>
-
         <div class="img-wrapper">
           <img src="./9_Bisonte_Magdaleniense_polícromo.jpg" alt="Bisonte de Altamira">
           <div class="img-tooltip">
             <div class="img-tooltip-inner">
               <div class="img-tooltip-label">Arte Rupestre del Paleolítico</div>
-              <div class="img-tooltip-title">Museo de Altamira & D. Rodríguez (2010). Bisonte Magdaleniense polícromo. 
-                [imagen]
-              </div>
+              <div class="img-tooltip-title">Museo de Altamira & D. Rodríguez (2010). Bisonte Magdaleniense polícromo.</div>
               <div class="img-tooltip-desc">Una de las pinturas vistas en el curso.</div>
             </div>
           </div>
         </div>
-
         <p class="card-text">
           Justamente, una de las primeras formas de arte llegó a ser por medio de experiencias personales que los
           cazadores llegaban a tener en su día a día, retratando sus vivencias personales diarias en los muros de las cuevas.
@@ -712,17 +750,17 @@
     <!-- CARD 2 -->
     <div class="arg-card" id="card2">
       <div class="card-header">
-        <div class="card-header-left">
+        <div>
           <div class="card-num">Argumento 02</div>
           <div class="card-title">Emociones simuladas vs. sentidas</div>
         </div>
-        <button class="card-close" onclick="closeCard('card2', 'btn2')">✕</button>
+        <button class="card-close" onclick="closeCard('card2','btn2')">✕</button>
       </div>
       <div class="card-body">
         <p class="card-text">
           Por otro lado, algunas personas podrían decir que la IA sí puede llegar a tener sentimientos de la misma forma en cómo
-          lo hace el ser humano. Sin embargo, y como lo muestra el artículo 'If AI only had a heart: Why artificial intelligence
-          research needs to take emotions more seriously', las emociones que puede llegar a tener van a ser simples órdenes
+          lo hace el ser humano. Sin embargo, y como lo muestra el artículo <em>'If AI only had a heart: Why artificial intelligence
+          research needs to take emotions more seriously'</em>, las emociones que puede llegar a tener van a ser simples órdenes
           que sus programadores le impondrían <strong>(Merriam, 2022)</strong>. Precisamente, uno de los factores importantes al momento de hablar del funcionamiento
           de la inteligencia artificial es el concepto de 'Descenso de Gradiente', el cual se basa en pasarle una serie de parámetros
           a una función de programación que va a arrojar un resultado, que es finalmente la respuesta que va a dar la Inteligencia artificial <strong>(IBM, s.f.)</strong> .
@@ -732,36 +770,32 @@
           le indica cómo reaccionar cuando ocurre algo en particular.
 
           </p>
-
-          <div class="img-wrapper">
+        <div class="img-wrapper">
           <img src="./descensoGradiente.jpg" alt="Descenso de gradiente">
           <div class="img-tooltip">
             <div class="img-tooltip-inner">
-              <div class="img-tooltip-label">Representación gráfica del Descenso de Gradiente</div>
-              <div class="img-tooltip-title">En la imagen se observa cómo el punto B representa el punto más abajo de la función (mínimo), 
-                correspondiéndose con una posible respuesta que pueda dar la IA. </div>
-              
+              <div class="img-tooltip-label">Representación gráfica</div>
+              <div class="img-tooltip-title">Descenso de Gradiente</div>
+              <div class="img-tooltip-desc">El punto B representa el mínimo de la función, correspondiente a una posible respuesta de la IA.</div>
             </div>
           </div>
         </div>
-
         <p class="card-text">
           Esto llevaría a una conclusión: que la IA pueda simular tener sentimientos, más no poder sentir de la misma
           forma en que lo hace el ser humano. En consecuencia, no podría generar arte por sí sola, sino que necesitaría la 
           intervención de un agente externo (el artista) que le proporcione la intención, la experiencia o la inspiración, usándola finalmente como una herramienta.
         </p>
-
       </div>
     </div>
 
     <!-- CARD 3 -->
     <div class="arg-card" id="card3">
       <div class="card-header">
-        <div class="card-header-left">
+        <div>
           <div class="card-num">Argumento 03</div>
           <div class="card-title">La IA como herramienta del artista</div>
         </div>
-        <button class="card-close" onclick="closeCard('card3', 'btn3')">✕</button>
+        <button class="card-close" onclick="closeCard('card3','btn3')">✕</button>
       </div>
       <div class="card-body">
         <p class="card-text">
@@ -773,22 +807,20 @@
           un artista pudo vender una obra realizada con inteligencia artificial llamada 'Portrait of Edmond de Belamy' en 2018
           vendida por 380.000 euros. Asimismo, y cómo continua exponiendo el mismo artículo:
         </p>
-
+        
         <div class="card-highlight">
           La IA ha demostrado ser una herramienta valiosa para los artistas que buscan nuevas formas de expresión y exploración creativa <strong>(Art Madrid, 2023)</strong>
         </div>
-
+        
         <div class="img-wrapper">
           <img src="./fotoIA.png" alt="Imagen generada por IA">
           <div class="img-tooltip">
             <div class="img-tooltip-inner">
               <div class="img-tooltip-label">Edmond de Bellamy</div>
               <div class="img-tooltip-title">Imagen generada por Inteligencia Artificial en 2018</div>
-              
             </div>
           </div>
         </div>
-
         <p class="card-text">
           De esta manera, se pone en evidencia que la IA, más allá de ser un generador de arte por sí misma, funciona principalmente como una
            herramienta al servicio del artista. Por lo tanto, aunque no se puede negar su papel en la creación de un nuevo medio de expresión, 
@@ -797,24 +829,23 @@
           que explica cómo le han llegado a explicar y sugerir el uso de inteligencia artificial en alguna de sus materias como una herramienta para
           producir medios artísticos. En el audio adjunto se presenta la breve entrevista hecha a la estudiante Laura.
         </p>
-
-        <div class="media-section">
-          <div class="audio-upload-area">
-            <audio controls style="width:100%; border-radius:2rem;">
-              <source src="./podcasLaura.mp4" type="audio/mpeg">
-            </audio>
-          </div>
+        <div class="audio-wrapper">
+          <div class="audio-label">Entrevista — Laura (Estudiante de Artes)</div>
+          <audio controls>
+            <source src="./podcasLaura.mp4" type="audio/mpeg">
+          </audio>
         </div>
       </div>
     </div>
 
+    <!-- CARD 4 -->
     <div class="arg-card" id="card4">
       <div class="card-header">
-        <div class="card-header-left">
+        <div>
           <div class="card-num">Argumento 4</div>
           <div class="card-title">La IA y la generación de música</div>
         </div>
-        <button class="card-close" onclick="closeCard('card4', 'btn4')">✕</button>
+        <button class="card-close" onclick="closeCard('card4','btn4')">✕</button>
       </div>
       <div class="card-body">
         <p class="card-text">
@@ -825,16 +856,20 @@
           Kirt Connor, que le pidió a la IA que le generara la letra de una canción al estilo de la banda de rock AC/DC, obteniendo
           el siguiente resultado:
         </p>
-
-        <a href="https://www.youtube.com/watch?v=vpEVsDN84Hc&list=RDvpEVsDN84Hc&start_radio=1">Link al video de la canción de AC/DC generada con IA.</a>
-
+        <p class="card-text">
+          <a href="https://www.youtube.com/watch?v=vpEVsDN84Hc&list=RDvpEVsDN84Hc&start_radio=1" target="_blank">▶ Ver: Canción de AC/DC generada con IA</a>
+        </p>
         <p class="card-text">
           Otro caso es el ya conocido de Flow GPT que creó una canción en 2023 llamada NostalgIA en donde se presentaban las voces de
           algunos cantantes tales como Justin Bieber o Bad Bunny, lo cual generó bastante revueló pues, llegó a molestar al mismo
           Bad Bunny en redes sociales.
         </p>
 
-        <a href="https://www.youtube.com/watch?v=XIg9fNaw0rE&list=RDXIg9fNaw0rE&start_radio=1">Link al video de la canción de Bad Bunny con IA</a>
+
+
+        <p class="card-text">
+          <a href="https://www.youtube.com/watch?v=XIg9fNaw0rE&list=RDXIg9fNaw0rE&start_radio=1" target="_blank">▶ Ver: Canción de Bad Bunny con IA (NostalgIA)</a>
+        </p>
 
         <p class="card-text">
           Sin embargo, ambos ejemplos anteriores vuelven a mostrar un aspecto, y es el de la inteligencia artificial cómo herramienta del artista que
@@ -842,8 +877,13 @@
         </p>
 
         <div class="card-highlight">
-          Y es que los algoritmos pueden aprender patrones y estilos artísticos y luego crear nuevas obras de arte basadas en ese conocimiento. <strong>(Art Madrid, 2023)</strong>
+          Los algoritmos pueden aprender patrones y estilos artísticos y luego crear nuevas obras de arte basadas en ese conocimiento. <strong>(Art Madrid, 2023)</strong>
         </div>
+
+        <p class="card-text">
+          Adicionalmente, y complementando lo anterior, el mismo Google define la IA cómo un sistema que aprende con base en una gran cantidad de datos, 
+          y que a partir de estos, inicia a realizar predicciones y crear modelos <strong>(Google Cloud, s.f.)</strong>.
+        </p>
 
         <p class="card-text">
           Por lo tanto, y ejemplificando lo anterior, es como si antes de que existiera Michael Jackson, se le
@@ -851,19 +891,17 @@
           de Michael Jackson, pues esos datos aún no existen. Precisamente, solo sería hasta cuando naciera Michael Jackson y sus obras se registran que la IA
           podría replicar su estilo. 
         </p>
-
-       
       </div>
     </div>
 
-  </div><!-- /cards-area -->
+  </div>
 </section>
 
+<!-- ── CONCLUSIONS ── -->
 <div class="conclusions-section" id="conclusions-section">
   <div class="conclusions-inner">
-    <div class="section-label">Cierre</div>
+    <div class="section-eyebrow">Cierre</div>
     <h2 class="section-title">Conclusiones</h2>
-
     <div class="conclusion-grid">
       <div class="conclusion-card">
         <p class="cc-text">
@@ -882,51 +920,171 @@
   </div>
 </div>
 
+<!-- ── BIBLIOGRAFÍA ── -->
+<section class="section" id="bibliografia-section">
+  <div class="section-eyebrow">Fuentes</div>
+  <h2 class="section-title">Bibliografía</h2>
+  
+  <p style="font-family:'Lora',serif; font-style:italic; font-size:0.9rem; color:var(--text-body); margin-bottom:1.8rem; opacity:0.8;">Es importante mencionar que la página fue realizada utilizando una plantilla de WIX, y posteriormente descargada
+    en archivo HTML para personalizarlo mejor, dado que me encuentro en 6 semestre de Ing. Sistemas y quería 
+    aplicar los conocimientos adquiridos en la carrera.
+  </p>
+
+  <div class="bib-list">
+
+    <!-- Art Madrid -->
+    <div class="bib-entry">
+      <span class="bib-num">01</span>
+      <p class="bib-text">
+        Art Madrid: feria de arte contemporáneo. (2023, 12 de abril). <em>Arte e inteligencia artificial: ¿El fin de la creatividad humana?</em>
+        <a href="https://www.art-madrid.com/es/post/arte-e-inteligencia-artificial-el-fin-de-la-creatividad-humana" target="_blank">
+          https://www.art-madrid.com/es/post/arte-e-inteligencia-artificial-el-fin-de-la-creatividad-humana
+        </a>
+      </p>
+    </div>
+
+    <!-- Barnadás -->
+    <div class="bib-entry">
+      <span class="bib-num">02</span>
+      <p class="bib-text">
+        Barnadás, A. (2023). <em>Altamira, el nacimiento del arte rupestre europeo.</em> National Geographic Historia.
+        <a href="https://historia.nationalgeographic.com.es/a/altamira-nacimiento-arte-rupestre-europeo-2_18472" target="_blank">
+          https://historia.nationalgeographic.com.es/a/altamira-nacimiento-arte-rupestre-europeo-2_18472
+        </a>
+      </p>
+    </div>
+
+    <!-- Boden -->
+    <div class="bib-entry">
+      <span class="bib-num">03</span>
+      <p class="bib-text">
+        Boden, M. (2016). <em>AI: its nature and future.</em> Oxford University Press.
+        <a href="https://www.docdroid.net/0WIb02H/margaret-a-boden-ai-its-nature-and-future-oxford-universitypress-2016-pdf" target="_blank">
+          https://www.docdroid.net/0WIb02H/margaret-a-boden-ai-its-nature-and-future-oxford-universitypress-2016-pdf
+        </a>
+      </p>
+    </div>
+
+    <!-- El Laberinto de Falken -->
+    <div class="bib-entry">
+      <span class="bib-num">04</span>
+      <p class="bib-text">
+        El laberinto de Falken. (2019, 26 de marzo). <em>Regresión lineal y descenso de gradiente con Python.</em>
+        <a href="https://www.ellaberintodefalken.com/2019/03/regresion-lineal-descenso-de-gradiente.html" target="_blank">
+          https://www.ellaberintodefalken.com/2019/03/regresion-lineal-descenso-de-gradiente.html
+        </a>
+      </p>
+    </div>
+
+    <!-- FlowGPT -->
+    <div class="bib-entry">
+      <span class="bib-num">05</span>
+      <p class="bib-text">
+        FlowGPT. (2023, 17 de octubre). <em>FlowGPT - DEMO 5: nostalgIA (Spanglish Version) (IA VERSION)</em> [video de YouTube].
+        <a href="https://www.youtube.com/watch?v=XIg9fNaw0rE&list=RDXIg9fNaw0rE&start_radio=1" target="_blank">
+          https://www.youtube.com/watch?v=XIg9fNaw0rE
+        </a>
+      </p>
+    </div>
+
+    <div class="bib-entry">
+      <span class="bib-num">06</span>
+      <p class="bib-text">
+        Google Cloud. (s.f.). <em>Inteligencia Artificial (IA): una guía fácil de entender</em>
+        <a href="https://cloud.google.com/learn/what-is-artificial-intelligence?hl=es-419" target="_blank">
+          https://cloud.google.com/learn/what-is-artificial-intelligence?hl=es-419
+        </a>
+      </p>
+    </div>
+
+    <!-- IBM -->
+    <div class="bib-entry">
+      <span class="bib-num">07</span>
+      <p class="bib-text">
+        IBM. (s.f.). <em>¿Qué es el descenso de gradiente?</em>
+        <a href="https://www.ibm.com/es-es/think/topics/gradient-descent" target="_blank">
+          https://www.ibm.com/es-es/think/topics/gradient-descent
+        </a>
+      </p>
+    </div>
+
+    <!-- Kirt Connor -->
+    <div class="bib-entry">
+      <span class="bib-num">08</span>
+      <p class="bib-text">
+        Kirt Connor. (2020, 11 de mayo). <em>AI/DC: I made a bot write an AC/DC song</em> [video de YouTube].
+        <a href="https://www.youtube.com/watch?v=vpEVsDN84Hc&list=RDvpEVsDN84Hc&start_radio=1" target="_blank">
+          https://www.youtube.com/watch?v=vpEVsDN84Hc
+        </a>
+      </p>
+    </div>
+
+    <!-- Merriam -->
+    <div class="bib-entry">
+      <span class="bib-num">09</span>
+      <p class="bib-text">
+        Merriam, G. (2022). If A.I. only had a heart: Why artificial intelligence research needs to take emotions more seriously.
+        <em>Journal of Artificial Intelligence and Consciousness, 9</em>(1), 73–91.
+        <a href="https://doi.org/10.1142/S2705078521500120" target="_blank">
+          https://doi.org/10.1142/S2705078521500120
+        </a>
+      </p>
+    </div>
+
+    <!-- Nafe -->
+    <div class="bib-entry">
+      <span class="bib-num">10</span>
+      <p class="bib-text">
+        Nafe, J. P. (1929). The sense of feeling. En C. Murchison (Ed.),
+        <em>The foundations of experimental psychology</em> (pp. 392–413). Clark University Press.
+        <a href="https://doi.org/10.1037/11018-009" target="_blank">
+          https://doi.org/10.1037/11018-009
+        </a>
+      </p>
+    </div>
+
+  </div><!-- /bib-list -->
+</section>
+
+
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-logo">Universidad de los Andes · 2026</div>
-  <div class="divider-foot"></div>
+  <div class="footer-logo">Universidad de los Andes - 2026</div>
+  <div class="footer-sep"></div>
   <div><strong>Curso:</strong> CBU: Nuevos Medios</div>
-  <div><strong>Hecho por:</strong> Miguel Santiago Roa Vallejo · 202322288</div>
+  <div><strong>Hecho por:</strong> Miguel Santiago Roa Vallejo - 202322288</div>
 </footer>
 
 <script>
   /* ── SCROLL REVEAL ── */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-      }
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
     });
   }, { threshold: 0.12 });
-
   document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
-  const conclusionObserver = new IntersectionObserver((entries) => {
+  const conclusionObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        const cards = e.target.querySelectorAll('.conclusion-card');
-        cards.forEach((c, i) => {
+        e.target.querySelectorAll('.conclusion-card').forEach((c, i) => {
           setTimeout(() => c.classList.add('visible'), i * 130);
         });
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.conclusions-section').forEach(s => conclusionObserver.observe(s));
+  document.querySelectorAll('.conclusions-section').forEach(s => conclusionObs.observe(s));
 
   /* ── CARD TOGGLE ── */
-  let activeCard = null;
-  let activeBtn  = null;
+  let activeCard = null, activeBtn = null;
 
   function toggleCard(cardId, btn) {
     const card = document.getElementById(cardId);
-
     if (activeCard && activeCard !== card) {
       activeCard.classList.remove('active');
       activeCard.style.display = 'none';
       if (activeBtn) activeBtn.classList.remove('active');
     }
-
     if (card.classList.contains('active')) {
       card.classList.remove('active');
       card.style.display = 'none';
