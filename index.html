@@ -33,7 +33,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+ 
   nav {
     background: var(--navy);
     padding: 0.9rem 3rem;
@@ -69,7 +69,7 @@
   }
   .nav-links a:hover { color: #fff; }
 
-  /* ── HERO ── */
+ 
   .hero {
     background: var(--navy);
     padding: 5rem 2rem 4.5rem;
@@ -139,7 +139,7 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── LAYOUT ── */
+  
   .container {
     max-width: 900px;
     margin: 0 auto;
@@ -183,7 +183,7 @@
     line-height: 1.25;
   }
 
-  /* ── THESIS ── */
+  
   .thesis-block {
     background: var(--navy);
     border-radius: 1.2rem;
@@ -223,7 +223,7 @@
     color: #a8c4f0;
   }
 
-  /* ── AUDIO ── */
+  
   .audio-wrapper {
     background: var(--white);
     border-radius: 1rem;
@@ -242,7 +242,6 @@
   }
   audio { width: 100%; border-radius: 2rem; }
 
-  /* ── ARGS GRID ── */
   .args-intro {
     font-family: 'Lora', serif;
     font-size: 1.05rem;
@@ -323,7 +322,6 @@
     transform: rotate(45deg);
   }
 
-  /* ── CARDS ── */
   .arg-card {
     display: none;
     background: var(--white);
@@ -404,7 +402,6 @@
     line-height: 1.7;
   }
 
-  /* ── IMAGES ── */
   .img-wrapper {
     position: relative;
     width: 100%;
@@ -459,7 +456,6 @@
     color: rgba(255,255,255,0.72); line-height: 1.55;
   }
 
-  /* ── CONCLUSIONS ── */
   .conclusions-section {
     background: var(--navy);
     padding: 5rem 2rem;
@@ -509,14 +505,12 @@
     color: rgba(255,255,255,0.88);
   }
 
-  /* ── SEPARATOR ── */
   .sep {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--lavender-mid), transparent);
     max-width: 900px; margin: 0 auto;
   }
 
-  /* ── FOOTER ── */
   footer {
     background: #0e1a38;
     color: rgba(255,255,255,0.45);
@@ -537,20 +531,19 @@
     margin: 0.8rem auto;
   }
 
-  /* media section */
+
   .media-section {
     margin-top: 1.8rem;
     padding-top: 1.4rem;
     border-top: 1px dashed var(--lavender-mid);
   }
 
-  /* links */
   a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
   a:hover { color: var(--navy); border-color: var(--navy); }
 
   img { max-width: 100%; border-radius: 0.75rem; margin: 0.8rem 0; }
 
-  /* ── BIBLIOGRAFÍA ── */
+  
 .bib-list {
   display: flex;
   flex-direction: column;
@@ -604,7 +597,7 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
+
 <nav>
   <div class="nav-brand">CBU Trabajo final: Nuevos Medios</div>
   <ul class="nav-links">
@@ -614,20 +607,17 @@
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
 <header class="hero">
   <span class="hero-tag">Universidad de los Andes - Miguel Santiago Roa Vallejo - 202322288</span>
   <h1 class="hero-title">
-    ¿La <em>Inteligencia Artificial</em> como un artista que produzca nuevos medios?
+    ¿La <em>Inteligencia Artificial</em> como artista que produzca nuevos medios?
   </h1>
   <div class="hero-line"></div>
   <p class="hero-sub">Trabajo final del CBU Nuevos Medios.</p>
   
 </header>
 
-<!-- ── THESIS ── -->
 <section class="section" id="thesis-section">
-  <div class="section-eyebrow">Proposición central</div>
   <h2 class="section-title">Tésis</h2>
   <div class="thesis-block">
     <p class="thesis-text">
@@ -643,21 +633,21 @@
 
 <div class="sep"></div>
 
-<!-- ── BODY ── -->
+
 <section class="section" id="body-section">
   <div class="section-eyebrow">Introducción</div>
 
   <div class="audio-wrapper">
     <div class="audio-label">Audio — Introducción</div>
     <audio controls>
-      <source src="audio_argumento2.mp3" type="audio/mpeg">
+      <source src="./intro.mp4" type="audio/mpeg">
     </audio>
   </div>
 
   <div class="section-eyebrow" style="margin-top:2.5rem;">Desarrollo</div>
   <h2 class="section-title">Cuerpo</h2>
 
-  <p class="args-intro">Selecciona cada argumento para expandir su desarrollo y análisis.</p>
+  <p class="args-intro">Selecciona cada argumento para expandir su desarrollo</p>
 
   <div class="args-grid">
     <button class="arg-btn" onclick="toggleCard('card1', this)" id="btn1">
@@ -703,18 +693,17 @@
       </div>
       <div class="card-body">
         <p class="card-text">
-          En primer lugar, y a diferencia de los humanos, la inteligencia artificial se encuentra en otro campo físico distinto.
-          Ejemplificando lo anterior, las personas sienten hambre, sueño. Cada vez que interactuan con el mundo externo
-          les llega la luz del sol y, por lo tanto, pueden experimentar calor. Cada vez que llueve, el agua los puede
-          resfriar, haciendo que se vean en la obligación de escamparse. Todo lo anterior permite mostrar que los humanos
-          son seres que están interactuando constantemente con el exterior, lo cual genera en ellos inevitablemente una serie
-          de sentimientos. Puntualmente, en 'Foundations of experimental psychology' se menciona que el sentir
+          En primer lugar, a diferencia de los seres humanos, la inteligencia artificial existe en un plano completamente distinto 
+          al mundo físico. Los seres humanos están en constante interacción con su entorno: sienten hambre, experimentan 
+          el cansancio del sueño, perciben el calor del sol o el frío de la lluvia que los obliga a escamparse.
+           Cada una de estas experiencias, por cotidiana que parezca, genera en ellos una respuesta emocional inevitable.
+           Puntualmente, en 'Foundations of experimental psychology' se menciona que el sentir
           se deriva de fenómenos observables y/o estímulos con el externo <strong>(Nafe, 1929)</strong>. En contraposición con lo anterior, y
-          como define Margaret A. Boden en su texto 'AI, its nature and future', la Inteligencia Artificial es una máquina virtual, es decir, que existe de una forma no tangible, y por lo tanto,
-          no puede tener contacto con estímulos externos de la misma forma en como el humano lo hace, pues este último
-          tiene organos sensoriales que le permiten esto. Por lo tanto, la forma en como la IA puede llegar a comunicarse
+          como define Margaret A. Boden en su texto 'AI, its nature and future', la Inteligencia Artificial es una máquina virtual, es decir, que existe de una forma no tangible, impidiendo
+          que esta pueda tener contacto con estímulos externos de la misma forma en como el humano lo hace, pues este último
+          tiene organos sensoriales que le permiten esto <strong>(Boden, 2016)</strong>. Por lo tanto, la forma en como la IA puede llegar a comunicarse
           con el exterior es distinta a cómo lo logra hacer una persona. Mientras por un lado la IA interpreta el
-          mundo exterior por medio de parámetros dados por medio de un computador (y entonces uno de sus órganos sería el teclado del computador), el artista
+          mundo exterior por medio de parámetros dados por un computador, el artista
           se comunica al exterior con su propio cuerpo.
 
         </p>
@@ -735,14 +724,11 @@
         </div>
         <p class="card-text">
           Justamente, una de las primeras formas de arte llegó a ser por medio de experiencias personales que los
-          cazadores llegaban a tener en su día a día, retratando sus vivencias personales diarias en los muros de las cuevas.
-          Esto último se puede extender a otros campos, en donde el artista producto de sentirse inspirado al ver 
-          el amanecer decide de crear una obra artística o escribir un poema.
-          
-          De este modo, dado que la inteligencia artificial actualmente no puede vivir experiencias como cazar o 
-          contemplar un amanecer del mismo modo que lo hace un ser humano, no se le presentan esas vivencias que
-           originan la inspiración artística. Por lo tanto, no podría ser artista en el mismo sentido en que lo ha 
-           sido el ser humano.
+          cazadores llegaban a tener en su día a día, retratando sus vivencias diarias en los muros de las cuevas.
+          Esta misma lógica se puede extender a otras formas de expresión artística: un poeta que contempla un amanecer 
+          y siente la necesidad de capturar ese momento en palabras; un músico que transforma el dolor de una 
+          pérdida en una melodía; un pintor que plasma en su pintura la angustia o la alegría por una experiencia vivida.
+          En este sentido, la inteligencia artificial no podría ser artista en el mismo significado y forma en que lo ha sido el ser humano.
         </p>
       </div>
     </div>
@@ -849,8 +835,8 @@
       </div>
       <div class="card-body">
         <p class="card-text">
-          Por último, otro aspecto a considerar en relación con la IA como herramienta del artista (y no como una entidad 
-          que sea artista en sí misma) es que, en los últimos años, ha comenzado a utilizarse también como generadora de 
+          Un último aspecto que refuerza la idea de la inteligencia artificial como herramienta del artista, y no como una entidad creadora por sí misma, es que, en los últimos años, 
+          ha comenzado a utilizarse también como generadora de 
           otro tipo de arte: la música. Ejemplificando lo anterior se encuentra el caso del 
           video de YouTube hecho por
           Kirt Connor, que le pidió a la IA que le generara la letra de una canción al estilo de la banda de rock AC/DC, obteniendo
@@ -913,7 +899,9 @@
           utilizando a la IA como una herramienta más en su producción y creación artística. En cuanto a esto último,
           pueden surgir una serie de interrogantes, tales como: ¿de qué manera el artista va a utilizar la IA en un futuro?,
           ¿llegará un punto en que la tecnología avance tanto hasta el punto de que estas herramientas se conviertan
-          sí mismas en artistas independientes?
+          sí mismas en artistas independientes? Por ahora, lo que sí es claro es que el arte sigue siendo profundamente humano.
+           No porque la inteligencia artificial sea incapaz de producir algo visualmente impresionante, sino porque detrás de toda obra hay una experiencia vivida, una emoción 
+          , o una historia personal que ningún algoritmo puede tener. 
         </p>
       </div>
     </div>
