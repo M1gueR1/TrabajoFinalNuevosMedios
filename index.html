@@ -593,6 +593,12 @@
 }
 .bib-text a:hover { color: var(--navy); border-color: var(--navy); }
 
+.img-wrapper--portrait img {
+  max-height: none;
+  height: auto;
+  object-fit: contain;
+}
+
 </style>
 </head>
 <body>
@@ -737,7 +743,7 @@
     <div class="arg-card" id="card2">
       <div class="card-header">
         <div>
-          <div class="card-num">Argumento 02</div>
+          <div class="card-num">Argumento 2</div>
           <div class="card-title">Emociones simuladas vs. sentidas</div>
         </div>
         <button class="card-close" onclick="closeCard('card2','btn2')">✕</button>
@@ -778,18 +784,18 @@
     <div class="arg-card" id="card3">
       <div class="card-header">
         <div>
-          <div class="card-num">Argumento 03</div>
+          <div class="card-num">Argumento 3</div>
           <div class="card-title">La IA como herramienta del artista</div>
         </div>
         <button class="card-close" onclick="closeCard('card3','btn3')">✕</button>
       </div>
       <div class="card-body">
         <p class="card-text">
-          Por otro lado, la inteligencia artifical efectivamente ha demostrado ser capaz de generar imágenes con base
-          en la gran cantidad de datos a la que puede acceder: basta pensar en el modelo de Gemini Nano Banana 3, el cual
-          dado una instrucción (prompt) es capaz de generar una imagen nueva. Sin embargo, ahí está la cuestión, y está en
-          el hecho de que una persona que no sepa realizar un buen prompt, o una persona que no sepa de arte no podría
-          generar una gran obra artística por medio de IA. Relacionado con esto último, en la página de Art Madrid: Feria de arte contemporáneo se presenta cómo
+          Por otro lado, la inteligencia artificial ha demostrado ser capaz de generar imágenes a partir de la gran cantidad de datos a 
+          los que puede acceder. Basta pensar en el modelo Gemini Nano Banana 3 que, a partir de una instrucción (prompt), 
+          es capaz de producir una imagen completamente nueva. Sin embargo, ahí radica la cuestión: una persona que no sepa 
+          elaborar un buen prompt (o que carezca de conocimientos artísticos) difícilmente podría generar una gran obra artística 
+          únicamente mediante el uso de IA. Relacionado con esto último, en la página de Art Madrid: Feria de arte contemporáneo se presenta cómo
           un artista pudo vender una obra realizada con inteligencia artificial llamada 'Portrait of Edmond de Belamy' en 2018
           vendida por 380.000 euros. Asimismo, y cómo continua exponiendo el mismo artículo:
         </p>
@@ -798,15 +804,15 @@
           La IA ha demostrado ser una herramienta valiosa para los artistas que buscan nuevas formas de expresión y exploración creativa <strong>(Art Madrid, 2023)</strong>
         </div>
         
-        <div class="img-wrapper">
-          <img src="./fotoIA.png" alt="Imagen generada por IA">
-          <div class="img-tooltip">
-            <div class="img-tooltip-inner">
-              <div class="img-tooltip-label">Edmond de Bellamy</div>
-              <div class="img-tooltip-title">Imagen generada por Inteligencia Artificial en 2018</div>
-            </div>
+        <div class="img-wrapper img-wrapper--portrait">
+        <img src="./fotoIA.png" alt="Imagen generada por IA">
+        <div class="img-tooltip">
+          <div class="img-tooltip-inner">
+            <div class="img-tooltip-label">Edmond de Belamy</div>
+            <div class="img-tooltip-title">Imagen generada por Inteligencia Artificial en 2018 por Obvious</div>
           </div>
         </div>
+      </div>
         <p class="card-text">
           De esta manera, se pone en evidencia que la IA, más allá de ser un generador de arte por sí misma, funciona principalmente como una
            herramienta al servicio del artista. Por lo tanto, aunque no se puede negar su papel en la creación de un nuevo medio de expresión, 
@@ -847,8 +853,8 @@
         </p>
         <p class="card-text">
           Otro caso es el ya conocido de Flow GPT que creó una canción en 2023 llamada NostalgIA en donde se presentaban las voces de
-          algunos cantantes tales como Justin Bieber o Bad Bunny, lo cual generó bastante revueló pues, llegó a molestar al mismo
-          Bad Bunny en redes sociales.
+          algunos cantantes tales como Justin Bieber o Bad Bunny, lo cual generó bastante revueló, pues llegó a molestar al mismo
+          Bad Bunny en redes sociales al haber utilizado su voz sin su consentimiento.
         </p>
 
 
